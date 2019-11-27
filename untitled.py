@@ -70,6 +70,18 @@ def dele():
 	mycol = mydb["admin"]
 	mycol.delete_one(data)
 	return jsonify(data)
+@app.route('/query',methods=['POST'])
+def query():
+	data = request.get_json(force=True)
+	print(data)
+	myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+	mydb = myclient["db123"]
+	mycol = mydb["admin"]
+	mydoc = mycol.find({ data['by']: { "$regex": data['search'] }},{"_id":0})
+	a = []
+	for x in mydoc:
+  		a.append(x)
+	return jsonify(a)
 
 if __name__ == '__main__':
 	app.run(port=5000, debug=True)

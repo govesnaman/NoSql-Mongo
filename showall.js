@@ -101,6 +101,85 @@
 
             }
 
+            function search()
+            {	var n = {}
+            	var x = document.getElementById("keyword").value;
+            	var y = document.getElementById("by").value;
+            	n["search"] = x;
+            	n["by"] = y;
+	            	
+				var paras = document.getElementsByTagName('p');
+				len = paras.length
+				for(i=len-1;i>=0;i--)
+					document.getElementsByTagName('p')[i].remove();
+
+
+
+  				$.ajax({
+				type:"POST",
+				url: "http://localhost:5000/query",
+				contentType: "application/json; charset= utf-8",
+				dataType: "json",
+				data: JSON.stringify(n),
+				success: function(data)
+				{	myvar = data;
+					
+				
+					
+
+                			for (var prop in data) {
+                				var c = document.createElement("p");
+                				var b = document.createElement("button");
+                				//b.onclick = function() {edit(data,prop)};
+                				b.setAttribute("onclick", 'edit('+prop+')');
+                				b.setAttribute("class","btns");
+                				b.innerHTML = "Edit";
+                				var o = document.createElement("button");
+                				//o.onclick = {help(prop)};
+                				o.setAttribute("class","btns");
+                				o.setAttribute("onclick","help('"+data[prop].EmployeeID+"')");
+                				// o.setAttribute("href", 'http://localhost:5000/deletee');
+                				o.setAttribute("id","test")
+                				o.innerHTML = "Delete";
+                				c.appendChild(b);
+                				c.appendChild(o);
+                				var d = document.getElementById("blocks");
+                				d.appendChild(c); 
+                				var x = Object.keys(data[prop])
+
+                				for (var keys in x){
+                					
+                					var str = x[keys] + " : " + data[prop][x[keys]];
+
+                					console.log(str)
+                					s = document.getElementsByTagName("p")[prop];
+                					q = document.createElement("div");
+                					
+                					q.innerHTML = str;
+                					
+                					s.appendChild(q)
+                					
+                					console.log(data[prop][x[keys]])
+                				}
+                				
+							   	
+						
+							}
+                
+						
+					
+				},
+
+				error: function()
+				{
+					console.log("error")
+					document.location.href = "./Failed.html";
+				}
+
+			})
+
+            }
+
         
           
        
