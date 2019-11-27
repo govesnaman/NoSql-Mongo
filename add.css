@@ -1,0 +1,91 @@
+h1{font-family: "Algerian";}
+h2:hover{
+	margin-top: 70px;
+}
+.field, select{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid;
+  border-radius: 4px;
+}
+fieldset{
+	  border-radius: 8px;
+  border: 1px solid;
+
+}
+.divide{
+	display: flex;
+	justify-content: space-between;
+}
+.navbar{
+
+	background: #170a45;
+	position: fixed;
+	top: 0px;
+	width: 1500px;
+	height: 105px;
+	color: white;
+	cursor: pointer;
+	margin-top: 0px;
+}
+.home{padding: 20px 15px;
+	text-align: center;
+	display: inline-block;
+}
+
+.brand{
+	padding: 20px 15px;
+	text-align: center;
+	display: inline-block;
+
+}
+
+.home:hover{
+	background: orange;
+	color:black;
+	height: 100px;
+}
+
+.brand:hover{
+	background: lightgreen;
+	color:black;
+	height: 100px;
+}
+
+.body{
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	color: white;
+}
+html{
+	background:black;
+}
+#head{
+	margin-top: 175px;
+	display: flex;
+	color: orange;
+	justify-content: center;
+}
+#submit{
+	text-align: center;
+}
+button[type=button]{
+  background-color: black;
+  border: white solid;
+  color: white;
+  padding: 14px 28px;
+  text-decoration: 30px;
+  margin: 4px 2px;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+}
+button[type=button]:hover{
+	background: orange;
+}
+
+form{
+	width: 50%
+}
